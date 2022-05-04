@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  cupsd:
+    image: carnel/cupsd
+#    privileged: true
+    container_name: cupsd
+    volumes:
+      - /var/run/dbus:/var/run/dbus
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    ports:
+      - 631:631
+#    network_mode: host
+    restart: unless-stopped
